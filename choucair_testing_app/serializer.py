@@ -17,6 +17,7 @@ class CreateProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Products
         fields = [
+            "product_id",
             "product_name",
             "description",
             "price",
@@ -30,7 +31,7 @@ class GetProductSerializer(serializers.Serializer):
     product_id = serializers.CharField(allow_blank=False, required=True, max_length=100)
 
 class UpdateproductSerializer(serializers.Serializer):
-    id = serializers.CharField(allow_blank=False, required=True, max_length=100)
+    product_id = serializers.CharField(allow_blank=False, required=True, max_length=100)
     product_name = serializers.CharField(allow_blank=False, required=True, max_length=100)
     description = serializers.CharField(allow_blank=False, required=True, max_length=100)
     price = serializers.IntegerField(required=True)

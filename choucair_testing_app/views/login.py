@@ -16,4 +16,3 @@ class LoginView(APIView):
         domain = loginDomain(**serializer.data)
         uc = LoginUseCase()
         return uc.execute(domain=domain, request=request)
-

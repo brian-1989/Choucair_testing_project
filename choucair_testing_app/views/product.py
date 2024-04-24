@@ -25,8 +25,8 @@ class GetProductView(APIView):
     permission_classes = [IsAuthenticated]
 
     def get(self, request: Request):
-        product_name = request.query_params.get('product_id')
-        serializer = GetProductSerializer(data={"product_id": product_name})
+        product_id = request.query_params.get('product_id')
+        serializer = GetProductSerializer(data={"product_id": product_id})
         serializer.is_valid(raise_exception=True)
         domain = GetProductDomain(**serializer.data)
         uc = GetProductUseCase()

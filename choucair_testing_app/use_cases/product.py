@@ -57,7 +57,7 @@ class UpdateproductUseCase:
     def execute(self, domain):
         try:
             # Check if the product is registered
-            product = Products.objects.filter(id=domain.id)
+            product = Products.objects.filter(product_id=domain.product_id)
             if len(list(product)) == 0:
                 return Response(
                     {"Message": f"the product '{domain.product_name}' does not exist"},
@@ -67,7 +67,7 @@ class UpdateproductUseCase:
             domain.update_date = datetime.now(tz=pytz.timezone('America/Bogota')).date()
             Products.objects.update(**domain.__dict__)
             return Response(
-                Products.objects.filter(id=domain.id).values(),
+                Products.objects.filter(product_id=domain.product_id).values(),
                 status.HTTP_200_OK
             )
         except Exception as error:
@@ -81,7 +81,7 @@ class DeleteProductUseCase:
     def execute(self, domain: DeleteProductDomain):
         try:
             # Check if the product is registered
-            product = Products.objects.filter(id=domain.product_id)
+            product = Products.objects.filter(product_id=domain.product_id)
             if len(list(product)) == 0:
                 return Response(
                     {"Message": f"the product id '{domain.product_id}' does not exist"},
