@@ -15,23 +15,17 @@ class UserRegisterDomain:
     password: str = None
     email: str = None
 
+
 class CreateAndUpdateProductDomain:
     def __init__(self, **kwargs):
         for key, value in kwargs.items():
             setattr(self, key, value)
 
+
 @dataclasses.dataclass
 class GetProductDomain:
     product_id: str = None
 
-# @dataclasses.dataclass
-# class UpdateproductDomain:
-#     id: str = None
-#     product_name: str = None
-#     description: str = None
-#     price: int = 0
-#     stock: int = 0
-#     update_date: str = None
 
 @dataclasses.dataclass
 class DeleteProductDomain:

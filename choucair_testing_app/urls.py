@@ -18,7 +18,9 @@ urlpatterns += [
     path('user_register/', UserRegisterView.as_view(), name='user_register'),
     path('logout/', LogoutView.as_view(), name='logout'),
     path('get_product/', GetProductView.as_view(), name='get_product'),
-    path('create_product/', CreateProductView.as_view(), name='create_product'),
-    path('update_product/', UpdateproductView.as_view(), name='update_product'),
+    path('create_product/',
+         CreateProductView.as_view(), name='create_product'),
+    path('update_product/',
+         UpdateproductView.as_view(), name='update_product'),
     path('delete_product/', DeleteProductView.as_view(), name='delete_product')
 ]
