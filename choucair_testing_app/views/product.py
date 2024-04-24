@@ -20,6 +20,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.request import Request
 from rest_framework.views import APIView
 
+
 class GetProductView(APIView):
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
@@ -52,6 +53,7 @@ class CreateProductView(APIView):
         uc = CreateProductUseCase()
         return uc.execute(domain=domain)
 
+
 class UpdateproductView(APIView):
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
@@ -70,6 +72,7 @@ class UpdateproductView(APIView):
         domain = CreateAndUpdateProductDomain(**serializer.validated_data)
         uc = UpdateproductUseCase()
         return uc.execute(domain=domain)
+
 
 class DeleteProductView(APIView):
     authentication_classes = [TokenAuthentication]
