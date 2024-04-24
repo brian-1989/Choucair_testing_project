@@ -5,6 +5,7 @@ from rest_framework.authtoken.models import Token
 from rest_framework import status
 from rest_framework.views import Response
 
+
 class LoginUseCase:
     def execute(self, domain: loginDomain, request):
         try:
