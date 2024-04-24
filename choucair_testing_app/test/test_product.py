@@ -5,12 +5,14 @@ from rest_framework import status
 from pathlib import Path
 import os
 
+
 class GetProductApiTest(TestCase):
     def setUp(self):
         # Creat a test user
         self.username = 'Brian95'
         self.password = '12345'
-        self.user = User.objects.create_user(username=self.username, password=self.password)
+        self.user = User.objects.create_user(
+            username=self.username, password=self.password)
         self.user.save()
 
         # Creat a test token
@@ -60,7 +62,8 @@ class CreateProductApiTest(TestCase):
         # Creat a test user
         self.username = 'Brian95'
         self.password = '12345'
-        self.user = User.objects.create_user(username=self.username, password=self.password)
+        self.user = User.objects.create_user(
+            username=self.username, password=self.password)
         self.user.save()
 
         # Creat a test token
@@ -93,7 +96,8 @@ class DeleteProductApiTest(TestCase):
         # Creat a test user
         self.username = 'Brian95'
         self.password = '12345'
-        self.user = User.objects.create_user(username=self.username, password=self.password)
+        self.user = User.objects.create_user(
+            username=self.username, password=self.password)
         self.user.save()
 
         # Creat a test token
