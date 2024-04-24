@@ -75,9 +75,11 @@ class UpdateproductUseCase:
             # Add update date
             domain.update_date = datetime.now(
                 tz=pytz.timezone('America/Bogota')).date()
+            product_id = domain.__dict__.get("product_id")
+            del domain.__dict__["product_id"]
             Products.objects.update(**domain.__dict__)
             return Response(
-                Products.objects.filter(product_id=domain.product_id).values(),
+                Products.objects.filter(product_id=product_id).values(),
                 status.HTTP_200_OK
             )
         except Exception as error:
